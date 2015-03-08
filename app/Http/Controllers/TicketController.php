@@ -32,10 +32,12 @@ class TicketController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store(Request $request)
+	public function store($data)
 	{
-		$request->all();
-		Ticket::create($request);
+		dd($data);
+		parse_str($data, $ticket);
+		dd($ticket);
+		Ticket::create($ticket);
 	}
 
 	/**

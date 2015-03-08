@@ -14,13 +14,20 @@ class AmsterdamAPI {
 
     private function curl($url, $data = [])
     {
+        dd($data);
         $finalUrl = $this->baseUrl . $url;
         $ch = curl_init();
 
         curl_setopt($ch,CURLOPT_URL, $finalUrl);
-        curl_setopt($ch,CURLOPT_POST, count($data));
-        curl_setopt($ch,CURLOPT_POSTFIELDS, $dataString);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        if (count($data) > 0) :
+            curl_setopt($ch,CURLOPT_POST, count($data));
+            curl_setopt($ch,CURLOPT_POSTFIELDS, http_build_query($data));
+        endif;
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+            'Content-Type: application/json',
+            'Accept: application/json'
+        ));
 
         $result = curl_exec($ch);
         curl_close($ch);
@@ -38,7 +45,7 @@ class AmsterdamAPI {
         return $this->curl('posts/' . $id);
     }
 
-    /* Methods for retrieving tickets */
+    /* Methods for  tickets */
     public function tickets()
     {
         return $this->curl('tickets');
@@ -47,5 +54,11 @@ class AmsterdamAPI {
     public function ticket($id)
     {
         return $this->curl('tickets/' . $id);
+    }
+
+    public function saveTicket($data)
+    {
+        parse_str($data, $ticket);
+        $this->curl('tickets', $ticket);
     }
 }
