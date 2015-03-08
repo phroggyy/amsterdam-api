@@ -15,7 +15,7 @@ Route::get('/', 'WelcomeController@index');
 
 Route::get('home', 'HomeController@index');
 
-Route::resource('ticket', 'TicketController');
+Route::resource('tickets', 'TicketController');
 Route::resource('posts', 'PostsController');
 
 Route::post('ticket/handled', 'TicketController@handled');
