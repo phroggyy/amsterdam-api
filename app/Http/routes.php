@@ -18,7 +18,7 @@ Route::get('home', 'HomeController@index');
 Route::resource('tickets', 'TicketController');
 Route::resource('posts', 'PostsController');
 
-Route::post('ticket/handled', 'TicketController@handled');
+Route::post('tickets/handled', 'TicketController@handled');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
