@@ -34,11 +34,9 @@ class TicketController extends Controller {
 	 */
 	public function store()
 	{
-		var_dump($_POST);
-		die;
-		return $data;
-		parse_str($data, $ticket);
+		$ticket = ['name' => $_POST['name'], 'email' => $_POST['email'], 'subject' => $_POST['subject'], 'message' => $_POST['message']];
 		Ticket::create($ticket);
+		return 'Ticket submitted';
 	}
 
 	/**
