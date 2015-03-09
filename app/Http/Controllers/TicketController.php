@@ -32,7 +32,7 @@ class TicketController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store(Request $request)
+	public function store($request)
 	{
 		dd($request);
 		return $data;
