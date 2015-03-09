@@ -34,7 +34,8 @@ class TicketController extends Controller {
 	 */
 	public function store($request)
 	{
-		dd($request);
+		var_dump($request);
+		die;
 		return $data;
 		parse_str($data, $ticket);
 		Ticket::create($ticket);
