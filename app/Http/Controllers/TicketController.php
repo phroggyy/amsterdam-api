@@ -32,9 +32,9 @@ class TicketController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store($request)
+	public function store()
 	{
-		var_dump($request);
+		var_dump($_POST);
 		die;
 		return $data;
 		parse_str($data, $ticket);
