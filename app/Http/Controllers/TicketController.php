@@ -34,7 +34,6 @@ class TicketController extends Controller {
 	 */
 	public function store($request)
 	{
-		dd('We are here');
 		var_dump($request);
 		die;
 		return $data;
