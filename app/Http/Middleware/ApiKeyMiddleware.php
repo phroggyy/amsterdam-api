@@ -16,6 +16,8 @@ class ApiKeyMiddleware {
 	public function handle($request, Closure $next)
 	{
 		$serverKey = $request->input['key'];
+		var_dump($request);
+		die;
 		dd($serverKey);
 		$serverSecret = Api_key::all()->where('key', $serverKey)->lists('secret');
 		dd($serverSecret);
