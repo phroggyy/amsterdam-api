@@ -16,6 +16,7 @@ class ApiKeyMiddleware {
 	public function handle($request, Closure $next)
 	{
 		$serverKey = $request->input['key'];
+		dd($serverKey);
 		$serverSecret = Api_key::all()->where('key', $serverKey)->lists('secret');
 		dd($serverSecret);
 		if ($request->input['secret'] = bcrypt($serverKey . $serverSecret)) {
