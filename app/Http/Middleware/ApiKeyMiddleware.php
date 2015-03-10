@@ -2,6 +2,7 @@
 
 use Closure;
 use Illuminate\Support\Facades\Hash;
+use App\Api_key;
 
 class ApiKeyMiddleware {
 
@@ -14,9 +15,11 @@ class ApiKeyMiddleware {
 	 */
 	public function handle($request, Closure $next)
 	{
-		dd($request);
-		//if $request->input['pub'];
-		return $next($request);
-	}
+		$serverKey = $request->input['key'];
+		$serverSecret = Api_key::all()->where('key', $serverKey)->lists('secret');
+		if ($request->input['secret'] = bcrypt($serverKey . $serverSecret)) {
+			return $next($request);
+		}
+ 	}
 
 }
