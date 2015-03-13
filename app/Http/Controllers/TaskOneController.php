@@ -4,7 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
-use App\Task1;
+use App\Apps_delegate_task1;
 
 class TaskOneController extends Controller {
 
@@ -15,7 +15,7 @@ class TaskOneController extends Controller {
 	 */
 	public function index()
 	{
-		return Task1::all();
+		return json_encode(Task1::all());
 	}
 
 	/**

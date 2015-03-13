@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class Task1 extends Model {
+class Apps_delegate_task1 extends Model {
 
 	//
 
