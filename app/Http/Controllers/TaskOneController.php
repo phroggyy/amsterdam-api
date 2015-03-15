@@ -4,7 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
-use App\Apps_delegate_task1;
+use App\Apps_delegate_task1 as Task1;
 
 class TaskOneController extends Controller {
 
@@ -80,6 +80,11 @@ class TaskOneController extends Controller {
 	public function destroy($id)
 	{
 		//
+	}
+
+	public function showCommittee($committee)
+	{
+		return json_encode(Task1::all()->where('committee', $committee));
 	}
 
 }

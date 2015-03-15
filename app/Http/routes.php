@@ -18,6 +18,7 @@ Route::get('home', 'HomeController@index');
 Route::resource('tickets', 'TicketController');
 Route::resource('posts', 'PostsController');
 Route::resource('task1', 'TaskOneController');
+Route::get('task1/{committee}', ['uses' => 'TaskOneController@showCommittee', 'as' => 'task1.showcommittee']);
 
 Route::post('tickets/{id}/handled', 'TicketController@handled');
 
