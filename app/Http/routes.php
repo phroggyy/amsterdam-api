@@ -20,6 +20,7 @@ Route::resource('posts', 'PostsController');
 Route::any('task1/committee/{committee}', ['uses' => 'TaskOneController@showCommittee', 'as' => 'task1.showcommittee']);
 
 Route::resource('task1', 'TaskOneController');
+Route::resource('videos', 'VideoController');
 
 Route::post('tickets/{id}/handled', 'TicketController@handled');
 
