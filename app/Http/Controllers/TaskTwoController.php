@@ -59,7 +59,7 @@ class TaskTwoController extends Controller {
 	 */
 	public function show($id)
 	{
-		echo $this->committee->links();
+		echo json_encode($this->committee->links());
 	}
 
 	/**
