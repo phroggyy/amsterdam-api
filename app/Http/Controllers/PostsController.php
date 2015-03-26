@@ -14,7 +14,7 @@ class PostsController extends Controller {
 	 */
 	public function index()
 	{
-		return json_encode(Wp_post::all()->where('post_type', 'post'));
+		return json_encode(Wp_post::all()->where('post_type', 'post')->where('post_status', 'publish'));
 	}
 
 	/**
