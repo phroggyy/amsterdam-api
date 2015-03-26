@@ -17,9 +17,11 @@ Route::get('home', 'HomeController@index');
 
 Route::resource('tickets', 'TicketController');
 Route::resource('posts', 'PostsController');
-Route::any('task1/committee/{committee}', ['uses' => 'TaskOneController@showCommittee', 'as' => 'task1.showcommittee']);
 
+Route::any('task1/committee/{committee}', ['uses' => 'TaskOneController@showCommittee', 'as' => 'task1.showcommittee']);
 Route::resource('task1', 'TaskOneController');
+
+//Route::any('task3', ['uses' => 'TaskTwoController', 'as' => 'task2.committees']);
 Route::resource('task3', 'TaskTwoController');
 Route::resource('videos', 'VideoController');
 

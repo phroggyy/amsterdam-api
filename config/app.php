@@ -136,6 +136,8 @@ return [
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 
+		'Barryvdh\Cors\CorsServiceProvider',
+
 		/*
 		 * Application Service Providers...
 		 */
