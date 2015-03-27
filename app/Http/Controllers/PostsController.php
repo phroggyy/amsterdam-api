@@ -4,6 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Wp_post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PostsController extends Controller {
 
@@ -14,7 +15,14 @@ class PostsController extends Controller {
 	 */
 	public function index()
 	{
-		return json_encode(Wp_post::all()->where('post_type', 'post')->where('post_status', 'publish'));
+
+		$posts = Wp_post::all()->where('post_type', 'post')->where('post_status', 'publish');
+		foreach ($posts as $post) {
+			$thumbId = DB::table('wp_postmeta')->where('post_id', $post['id'])->where('meta_key', '_thumbnail_id')->lists('meta_value');
+			$post['thumbUrl'] = Wp_post::find($thumbId)->lists('guid');
+		}
+		dd($posts);
+		return json_encode($posts);
 	}
 
 	/**
