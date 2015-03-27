@@ -20,6 +20,7 @@ class PostsController extends Controller {
 		foreach ($posts as $post) {
 			$thumbId = DB::table('wp_postmeta')->where('post_id', $post['id'])->where('meta_key', '_thumbnail_id')->lists('meta_value');
 			$post['thumbUrl'] = Wp_post::find($thumbId)->lists('guid');
+			dd($thumbId);
 		}
 		dd($posts);
 		return json_encode($posts);
