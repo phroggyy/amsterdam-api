@@ -18,7 +18,7 @@ class PostsController extends Controller {
 
 		$posts = Wp_post::all()->where('post_type', 'post')->where('post_status', 'publish');
 		foreach ($posts as $post) {
-			dd($post->id);
+			dd($post);
 			$thumbId = DB::table('wp_postmeta')->where('post_id', $post->id)->where('meta_key', '_thumbnail_id')->lists('meta_value');
 			$post['thumbUrl'] = Wp_post::find($thumbId)->lists('guid');
 			dd($thumbId);
