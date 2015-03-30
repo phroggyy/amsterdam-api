@@ -23,7 +23,7 @@ class VideoController extends Controller {
 		if (!isset($_SESSION['token'])) {
 			// Set credentials
 			// These should actually be saved in a cookie to not constantly reauth
-			$token = $vimeo->clientCredentials();
+			$token = $this->vimeo->clientCredentials();
 			$_SESSION['token'] = $token;
 		}
 		$this->vimeo->setToken($_SESSION['token']['body']['access_token']);
