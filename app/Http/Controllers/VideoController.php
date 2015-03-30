@@ -26,7 +26,7 @@ class VideoController extends Controller {
 			$token = $vimeo->clientCredentials();
 			$_SESSION['token'] = $token;
 		}
-		$this->vimeo->setToken($_SESSION['token']['body']['access_token'])
+		$this->vimeo->setToken($_SESSION['token']['body']['access_token']);
 	}
 
 
