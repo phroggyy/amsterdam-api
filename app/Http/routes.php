@@ -25,6 +25,8 @@ Route::resource('task1', 'TaskOneController');
 Route::resource('task3', 'TaskTwoController');
 Route::resource('videos', 'VideoController');
 
+Route::resource('albums', 'PhotosController');	// http://api.tandem15.eu/albums to retrieve all, http://api.tandem15.eu/albums/{id} for show
+
 Route::post('tickets/{id}/handled', 'TicketController@handled');
 
 Route::controllers([
