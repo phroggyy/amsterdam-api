@@ -38,7 +38,6 @@ class VideoController extends Controller {
 	public function index()
 	{
 		$response = $this->vimeo->request('/users/tandem15/videos', [], 'GET');
-		dd($response['body']);
 		echo json_encode($response['body']['data']);
 	}
 

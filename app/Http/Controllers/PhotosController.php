@@ -29,6 +29,7 @@ class PhotosController extends Controller {
 	{
 		$curlResponse = $this->fb->curl_get('amsterdam2015/albums?fields=id,name,description,link,cover_photo,count');
 		$albums = $curlResponse->data;
+		var_dump($albums);
 		foreach($albums as $album) {
 			// I don't know if $album is actually an array or an object, check with dd
 			$album->cover_pic = $this->fb->curl_get($album->cover_photo . '?fields=source')->source;
