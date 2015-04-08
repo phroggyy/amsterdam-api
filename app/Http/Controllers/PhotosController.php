@@ -34,7 +34,7 @@ class PhotosController extends Controller {
 			// I don't know if $album is actually an array or an object, check with dd
 			$album->cover_pic = $this->fb->curl_get($album->cover_photo . '?fields=source')->source;
 		}
-		echo json_encode($albums);
+		//echo json_encode($albums);
 	}
 
 
