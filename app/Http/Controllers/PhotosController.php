@@ -51,6 +51,7 @@ class PhotosController extends Controller {
 		$response = $this->fb->curl_get($id . '/photos?fields=images,description');
 		$images = $response->data;
 		echo json_encode($images);
+		die;
 	}
 
 	/**
